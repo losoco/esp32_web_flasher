@@ -1,0 +1,32 @@
+{
+  "name": "ESP32-S3 Edge Agent",
+  "version": "build-2026-05-14",
+  "description": "ESP-IDF build output from esp-claw_ref/application/edge_agent/build. Use flash mode dio, frequency 80m, size 16MB.",
+  "images": [
+    {
+      "name": "Bootloader",
+      "path": "/firmware/edge_agent/bootloader.bin",
+      "address": "0x0"
+    },
+    {
+      "name": "Partition Table",
+      "path": "/firmware/edge_agent/partition-table.bin",
+      "address": "0x8000"
+    },
+    {
+      "name": "OTA Data",
+      "path": "/firmware/edge_agent/ota_data_initial.bin",
+      "address": "0xF000"
+    },
+    {
+      "name": "Edge Agent Application",
+      "path": "/firmware/edge_agent/edge_agent.bin",
+      "address": "0x20000"
+    },
+    {
+      "name": "Storage Image",
+      "path": "/firmware/edge_agent/storage.bin",
+      "address": "0xB20000"
+    }
+  ]
+}

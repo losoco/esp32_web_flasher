@@ -1,0 +1,99 @@
+:root {
+  --text: #475569;
+  --text-h: #0f172a;
+  --muted: #64748b;
+  --bg: #f8fafc;
+  --panel-bg: #fff;
+  --soft-bg: #f1f5f9;
+  --input-bg: #fff;
+  --log-bg: #0f172a;
+  --border: #e2e8f0;
+  --accent: #2563eb;
+  --accent-bg: rgba(37, 99, 235, 0.1);
+  --accent-border: rgba(37, 99, 235, 0.35);
+  --success: #0f9f6e;
+  --warning: #b45309;
+  --danger: #dc2626;
+  --shadow: rgba(15, 23, 42, 0.08) 0 12px 30px;
+
+  --sans: system-ui, 'Segoe UI', Roboto, sans-serif;
+  --heading: system-ui, 'Segoe UI', Roboto, sans-serif;
+  --mono: ui-monospace, Consolas, monospace;
+
+  font: 18px/145% var(--sans);
+  letter-spacing: 0.18px;
+  color-scheme: light dark;
+  color: var(--text);
+  background: var(--bg);
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+
+  @media (max-width: 1024px) {
+    font-size: 16px;
+  }
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --text: #cbd5e1;
+    --text-h: #f8fafc;
+    --muted: #94a3b8;
+    --bg: #020617;
+    --panel-bg: #0f172a;
+    --soft-bg: #111c31;
+    --input-bg: #111827;
+    --log-bg: #020617;
+    --border: #1e293b;
+    --accent: #60a5fa;
+    --accent-bg: rgba(96, 165, 250, 0.14);
+    --accent-border: rgba(96, 165, 250, 0.42);
+    --success: #34d399;
+    --warning: #f59e0b;
+    --danger: #f87171;
+    --shadow: rgba(0, 0, 0, 0.32) 0 16px 40px;
+  }
+}
+
+#root {
+  min-height: 100svh;
+}
+
+body {
+  margin: 0;
+  min-width: 320px;
+  background:
+    radial-gradient(circle at top left, var(--accent-bg), transparent 420px),
+    var(--bg);
+}
+
+h1,
+h2 {
+  font-family: var(--heading);
+  font-weight: 500;
+  color: var(--text-h);
+}
+
+h1 {
+  font-size: clamp(40px, 6vw, 72px);
+  line-height: 0.95;
+  letter-spacing: -0.06em;
+  margin: 0 0 18px;
+  @media (max-width: 1024px) {
+    font-size: 36px;
+    margin: 20px 0;
+  }
+}
+h2 {
+  font-size: 24px;
+  line-height: 118%;
+  letter-spacing: -0.24px;
+  margin: 0 0 8px;
+  @media (max-width: 1024px) {
+    font-size: 20px;
+  }
+}
+p {
+  margin: 0;
+}
