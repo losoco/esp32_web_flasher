@@ -20,6 +20,16 @@ npm run dev
 Open the local URL printed by Vite. Browser-based serial access works on
 `localhost`.
 
+## GitHub Pages
+
+This app deploys with GitHub Actions to GitHub Pages. The Vite `base` is set for
+the repository URL:
+
+`https://losoco.github.io/esp32_web_flasher/`
+
+In the repository settings, set Pages source to GitHub Actions. GitHub also
+recommends Actions as the modern Pages deployment path in its Pages docs.
+
 ## Built-in Firmware
 
 Built-in firmware entries live in `public/firmware/manifest.json`. Put real

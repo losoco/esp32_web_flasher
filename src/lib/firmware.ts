@@ -4,7 +4,15 @@ import type {
   FirmwareManifestImage,
 } from '../types'
 
-export const MANIFEST_URL = '/firmware/manifest.json'
+export const MANIFEST_URL = resolvePublicPath('firmware/manifest.json')
+
+function resolvePublicPath(path: string): string {
+  const base = import.meta.env.BASE_URL
+  const normalizedBase = base.endsWith('/') ? base : `${base}/`
+  const normalizedPath = path.replace(/^\/+/, '')
+
+  return `${normalizedBase}${normalizedPath}`
+}
 
 export function parseFlashAddress(value: string): number {
   const normalized = value.trim()
@@ -56,7 +64,7 @@ export async function loadBuiltInFirmware(
 ): Promise<FirmwareImage[]> {
   return Promise.all(
     manifest.images.map(async (image, index) => {
-      const response = await fetch(image.path)
+      const response = await fetch(resolvePublicPath(image.path))
       if (!response.ok) {
         throw new Error(`Failed to load ${image.name}: ${response.status}`)
       }
@@ -72,7 +80,7 @@ export async function loadManifestFirmwareImage(
   image: FirmwareManifestImage,
   index: number,
 ): Promise<FirmwareImage> {
-  const response = await fetch(image.path)
+  const response = await fetch(resolvePublicPath(image.path))
   if (!response.ok) {
     throw new Error(`Failed to load ${image.name}: ${response.status}`)
   }
